@@ -3,873 +3,550 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Elite Caps México</title>
+  <title>Elite Caps México | Gorras premium</title>
+  <meta name="description" content="Descubre gorras premium de Elite Caps México y compra de forma segura en Mercado Libre.">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --negro: #080808;
+      --carbon: #11100f;
+      --dorado: #c89b46;
+      --dorado-claro: #e2c180;
+      --crema: #f5f2ec;
+      --blanco: #ffffff;
+      --texto: #171717;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
+      margin: 0;
+      background: var(--negro);
+      color: var(--blanco);
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #080808;
-      color: #ffffff;
     }
-
-    /* MENSAJE SUPERIOR */
+    a { color: inherit; }
 
     .aviso {
-      background-color: #ffffff;
-      color: #111111;
+      padding: 12px 20px;
+      background: var(--negro);
+      color: #e8e0d2;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .15em;
       text-align: center;
-      padding: 15px;
-      font-size: 15px;
-      border-bottom: 1px solid #dddddd;
+      text-transform: uppercase;
     }
 
-    /* MENÚ SUPERIOR */
-
-    .menu {
+    .encabezado {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      width: 100%;
-      background-color: #ffffff;
-      color: #111111;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      z-index: 50;
+      border-bottom: 1px solid #dfdfdf;
+      background: rgba(255,255,255,.96);
+      color: var(--texto);
+      backdrop-filter: blur(16px);
     }
 
-    .menu-contenido {
-      max-width: 1500px;
+    .navegacion {
       min-height: 82px;
+      width: min(1400px, calc(100% - 48px));
       margin: auto;
-      padding: 0 30px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 48px;
     }
 
-    .logo {
-      color: #111111;
-      font-size: 22px;
-      font-weight: bold;
+    .marca {
+      flex: 0 0 auto;
+      color: var(--negro);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -.04em;
       text-decoration: none;
     }
+    .marca span { color: #9b702d; }
 
-    .enlaces {
-      display: flex;
-      align-items: center;
-      gap: 35px;
-      list-style: none;
-    }
-
-    .enlaces a {
-      color: #222222;
-      font-size: 17px;
+    .links { display: flex; align-items: center; gap: 34px; }
+    .links a {
+      position: relative;
+      padding: 28px 0;
+      color: #2b2b2b;
+      font-size: 15px;
+      font-weight: 600;
       text-decoration: none;
-      transition: 0.3s;
     }
-
-    .enlaces a:hover {
-      color: #a57922;
+    .links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 20px;
+      left: 0;
+      height: 2px;
+      background: var(--dorado);
+      transform: scaleX(0);
+      transition: transform 180ms ease;
     }
+    .links a:hover::after { transform: scaleX(1); }
 
-    .boton-menu {
-      display: none;
-      background: none;
-      border: none;
-      color: #111111;
-      font-size: 29px;
-      cursor: pointer;
+    .comprar-menu {
+      margin-left: auto;
+      border: 1px solid var(--negro);
+      border-radius: 999px;
+      padding: 12px 21px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 180ms ease;
     }
-
-    /* PORTADA */
+    .comprar-menu:hover { background: var(--negro); color: var(--blanco); }
+    .menu-movil { display: none; }
 
     .portada {
       position: relative;
-      width: 100%;
-      min-height: 650px;
-      height: calc(100vh - 130px);
-
-      background-image:
-        linear-gradient(
-          rgba(0, 0, 0, 0.12),
-          rgba(0, 0, 0, 0.48)
-        ),
-        url("ChatGPT Image 16 ago 2026, 11_36_21 p.m..png");
-
-      background-size: cover;
+      min-height: 680px;
+      height: calc(100vh - 118px);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background-image: url("ChatGPT Image 16 ago 2026, 11_36_21 p.m..png");
       background-position: center;
+      background-size: cover;
       background-repeat: no-repeat;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
     }
-
+    .portada::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.68)),
+        radial-gradient(circle at center, transparent 0 28%, rgba(0,0,0,.18) 72%);
+    }
     .portada-contenido {
+      position: relative;
+      z-index: 2;
+      width: min(1080px, calc(100% - 40px));
+      padding-top: 250px;
       text-align: center;
-      transform: translateY(110px);
     }
-
-    .portada h1 {
-      color: #ffffff;
-      font-size: clamp(38px, 5vw, 72px);
+    .etiqueta {
+      margin: 0 0 14px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .24em;
       text-transform: uppercase;
-      margin-bottom: 28px;
-      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.95);
     }
-
-    .boton-principal {
-      display: inline-block;
-      color: #ffffff;
-      background-color: rgba(0, 0, 0, 0.6);
-      border: 2px solid #ffffff;
-      border-radius: 18px;
-      padding: 19px 35px;
-      font-size: 20px;
+    .portada h1 {
+      margin: 0 0 32px;
+      font-size: clamp(42px, 5.8vw, 84px);
+      font-weight: 900;
+      letter-spacing: -.055em;
+      line-height: .96;
+      text-transform: uppercase;
+      text-shadow: 0 5px 28px #000;
+    }
+    .boton {
+      min-height: 58px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0 28px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .03em;
       text-decoration: none;
-      transition: 0.3s;
+      transition: 180ms ease;
     }
-
-    .boton-principal:hover {
-      color: #000000;
-      background-color: #ffffff;
-      transform: scale(1.05);
+    .boton:hover { transform: translateY(-3px); }
+    .boton-claro {
+      border: 1px solid rgba(255,255,255,.8);
+      background: rgba(7,7,7,.55);
+      color: var(--blanco);
+      backdrop-filter: blur(10px);
     }
-
-    /* CATÁLOGO */
+    .boton-claro:hover { background: var(--blanco); color: var(--negro); }
 
     .catalogo {
-      background-color: #0c0c0c;
-      padding: 85px 25px;
-      text-align: center;
+      scroll-margin-top: 82px;
+      padding: 100px max(24px, calc((100% - 1400px) / 2));
+      background: var(--crema);
+      color: var(--texto);
+    }
+    .cabecera-seccion {
+      margin-bottom: 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+    }
+    .dorada { color: #996d28; }
+    .cabecera-seccion h2,
+    .nosotros h2 {
+      margin: 0;
+      font-size: clamp(38px, 4.5vw, 66px);
+      letter-spacing: -.055em;
+      line-height: 1;
+    }
+    .introduccion {
+      max-width: 430px;
+      margin: 0;
+      color: #55504a;
+      font-size: 16px;
+      line-height: 1.65;
     }
 
-    .titulo-seccion {
-      color: #d4af37;
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .subtitulo {
-      color: #cccccc;
-      font-size: 18px;
-      margin-bottom: 45px;
-    }
-
-    .productos {
-      max-width: 1100px;
-      margin: auto;
+    .rejilla-productos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .producto {
+      overflow: hidden;
+      border: 1px solid #ded7cc;
+      border-radius: 18px;
+      background: var(--blanco);
+      box-shadow: 0 12px 32px rgba(57,46,28,.08);
+    }
+    .producto-foto {
+      position: relative;
+      height: 390px;
+      display: block;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      filter: saturate(1.03) contrast(1.02);
+      transition: transform 320ms ease;
+    }
+    .producto:hover .producto-foto { transform: scale(1.025); }
+
+    /* 
+      Cuando subas cada foto individual, usa estos nombres:
+      gorra-platinum.png, gorra-heaven-cyan.png,
+      gorra-galaxy.png y gorra-letras-chinas.png.
+      Mientras tanto, se utiliza la fotografía principal como respaldo.
+    */
+    .nieve {
+      background-image:
+        url("gorra-platinum.png"),
+        url("ChatGPT Image 16 ago 2026, 11_36_21 p.m..png");
+      background-size: cover, 275% auto;
+      background-position: center, 8% 4%;
+    }
+    .cyan {
+      background-image:
+        url("gorra-heaven-cyan.png"),
+        url("ChatGPT Image 16 ago 2026, 11_36_21 p.m..png");
+      background-size: cover, 275% auto;
+      background-position: center, 7% 29%;
+    }
+    .galaxy {
+      background-image:
+        url("gorra-galaxy.png"),
+        url("ChatGPT Image 16 ago 2026, 11_36_21 p.m..png");
+      background-size: cover, 275% auto;
+      background-position: center, 22% 64%;
+    }
+    .letras {
+      background-image:
+        url("gorra-letras-chinas.png"),
+        url("ChatGPT Image 16 ago 2026, 11_36_21 p.m..png");
+      background-size: cover, 275% auto;
+      background-position: center, 35% 88%;
     }
 
-    .producto {
-      min-height: 220px;
-      background: linear-gradient(145deg, #191919, #080808);
-      border: 1px solid #604c18;
-      border-radius: 15px;
-      padding: 35px 20px;
+    .ver-modelo {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(0,0,0,.45);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+    .producto-info { padding: 22px; }
+    .producto-info p {
+      margin: 0 0 7px;
+      color: #8c6b38;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .18em;
+    }
+    .producto-info h3 {
+      min-height: 55px;
+      margin: 0 0 20px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    .boton-comprar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e7e0d6;
+      padding-top: 16px;
+      color: var(--texto);
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nosotros {
+      scroll-margin-top: 82px;
+      padding: 110px max(24px, calc((100% - 1400px) / 2));
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 90px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(197,149,67,.17), transparent 32%),
+        var(--carbon);
+    }
+    .nosotros-contenido > p:not(.etiqueta) {
+      max-width: 680px;
+      margin: 28px 0 32px;
+      color: #c9c4bd;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+    .boton-dorado { background: var(--dorado); color: #0c0a07; }
+    .boton-dorado:hover { background: var(--dorado-claro); }
+    .datos { border-top: 1px solid rgba(255,255,255,.15); }
+    .datos div {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      transition: 0.3s;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      padding: 26px 0;
     }
-
-    .producto:hover {
-      border-color: #d4af37;
-      transform: translateY(-6px);
-    }
-
-    .producto h3 {
-      color: #d4af37;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    .producto p {
-      color: #dddddd;
-      line-height: 1.6;
-    }
-
-    /* CONTACTO */
-
-    .contacto {
-      background-color: #151515;
-      padding: 85px 25px;
-      text-align: center;
-    }
-
-    .contacto p {
-      max-width: 650px;
-      margin: 15px auto;
-      color: #dddddd;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .boton-contacto {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 16px 30px;
-      background-color: #d4af37;
-      color: #000000;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .boton-contacto:hover {
-      background-color: #ffffff;
-    }
+    .datos strong { font-size: 17px; }
+    .datos span { color: #96918a; font-size: 14px; }
 
     footer {
-      background-color: #000000;
-      color: #999999;
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #463710;
+      padding: 35px max(24px, calc((100% - 1400px) / 2));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      background: #050505;
+      color: #77736d;
+      font-size: 12px;
+    }
+    .marca-pie { color: white; }
+
+    @media (max-width: 1050px) {
+      .rejilla-productos { grid-template-columns: repeat(2, 1fr); }
+      .producto-foto { height: 440px; }
+      .nosotros { grid-template-columns: 1fr; gap: 54px; }
     }
 
-    /* VERSIÓN PARA TELÉFONOS */
-
-    @media (max-width: 750px) {
-      .menu-contenido {
+    @media (max-width: 760px) {
+      .navegacion {
         min-height: 70px;
-        padding: 0 20px;
-        flex-wrap: wrap;
+        width: calc(100% - 32px);
+        justify-content: space-between;
+        gap: 16px;
       }
-
-      .boton-menu {
+      .marca { font-size: 17px; }
+      .menu-movil {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-content: center;
+        gap: 5px;
+        border: 0;
+        border-radius: 50%;
+        background: #f0ede8;
+      }
+      .menu-movil span {
+        width: 18px;
+        height: 2px;
         display: block;
+        background: #111;
       }
-
-      .enlaces {
+      .links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        left: 0;
         display: none;
-        width: 100%;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 0;
-        padding: 10px 0 20px;
+        padding: 10px 24px 18px;
+        background: white;
+        box-shadow: 0 16px 24px rgba(0,0,0,.12);
       }
-
-      .enlaces.activo {
-        display: flex;
-      }
-
-      .enlaces li {
-        width: 100%;
-      }
-
-      .enlaces a {
-        display: block;
-        width: 100%;
-        padding: 14px 5px;
-        border-bottom: 1px solid #eeeeee;
-      }
-
+      .links.abierto { display: flex; }
+      .links a { padding: 15px 0; border-bottom: 1px solid #eee; }
+      .links a::after { display: none; }
+      .comprar-menu { display: none; }
       .portada {
-        min-height: 620px;
-        height: calc(100vh - 115px);
-        background-position: center;
+        min-height: 610px;
+        height: calc(100svh - 108px);
+        background-position: 55% center;
       }
-
-      .portada-contenido {
-        transform: translateY(90px);
-      }
-
-      .portada h1 {
-        font-size: 34px;
-        line-height: 1.15;
-      }
-
-      .boton-principal {
-        padding: 16px 23px;
-        font-size: 16px;
-      }
-
-      .productos {
-        grid-template-columns: 1fr;
-      }
+      .portada-contenido { padding-top: 280px; }
+      .portada h1 { font-size: clamp(38px, 12vw, 54px); }
+      .boton { width: 100%; max-width: 360px; padding: 0 20px; font-size: 12px; }
+      .catalogo, .nosotros { padding-top: 78px; padding-bottom: 78px; }
+      .cabecera-seccion { display: block; }
+      .introduccion { margin-top: 20px; }
+      .rejilla-productos { grid-template-columns: 1fr; }
+      .producto-foto { height: 420px; }
+      footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 
 <body>
+  <div class="aviso">Bienvenido a nuestra tienda</div>
 
-  <div class="aviso">
-    Bienvenido a nuestra tienda
-  </div>
+  <header class="encabezado">
+    <nav class="navegacion" aria-label="Navegación principal">
+      <a class="marca" href="#inicio">ELITE CAPS <span>MÉXICO</span></a>
 
-  <nav class="menu">
-    <div class="menu-contenido">
-
-      <a class="logo" href="#inicio">Elite Caps México</a>
-
-      <button
-        class="boton-menu"
-        type="button"
-        onclick="abrirMenu()"
-        aria-label="Abrir menú"
-      >
-        ☰
+      <button class="menu-movil" type="button" onclick="abrirMenu()" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
       </button>
 
-      <ul class="enlaces" id="enlacesMenu">
-        <li>
-          <a href="#inicio" onclick="cerrarMenu()">Inicio</a>
-        </li>
-
-        <li>
-          <a href="#catalogo" onclick="cerrarMenu()">Catálogo</a>
-        </li>
-
-        <li>
-          <a href="#contacto" onclick="cerrarMenu()">Contacto</a>
-        </li>
-      </ul>
-
-    </div>
-  </nav>
-
-  <!-- INICIO -->
-
-  <section class="portada" id="inicio">
-    <div class="portada-contenido">
-
-      <h1>Gorras Elite Caps México</h1>
+      <div class="links" id="linksMenu">
+        <a href="#inicio" onclick="cerrarMenu()">Inicio</a>
+        <a href="#catalogo" onclick="cerrarMenu()">Catálogo</a>
+        <a href="#nosotros" onclick="cerrarMenu()">Acerca de nosotros</a>
+      </div>
 
       <a
-        class="boton-principal"
+        class="comprar-menu"
         href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=classic"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        Comprar Seguro en Mercado Libre
-      </a>
+      >Ver tienda</a>
+    </nav>
+  </header>
 
-    </div>
-  </section>
+  <main>
+    <section class="portada" id="inicio">
+      <div class="portada-contenido">
+        <p class="etiqueta">Estilo que impone presencia</p>
+        <h1>Gorras Elite Caps México</h1>
+        <a
+          class="boton boton-claro"
+          href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=classic"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Comprar seguro en Mercado Libre</a>
+      </div>
+    </section>
 
-  <!-- CATÁLOGO -->
-
-  <section class="catalogo" id="catalogo">
-
-    <h2 class="titulo-seccion">Nuestro catálogo</h2>
-
-    <p class="subtitulo">
-      Conoce algunos de los estilos disponibles en Elite Caps México.
-    </p>
-
-    <div class="productos">
-
-      <div class="producto">
-        <h3>Gorras premium</h3>
-        <p>Diseños exclusivos con excelente calidad y acabados.</p>
+    <section class="catalogo" id="catalogo">
+      <div class="cabecera-seccion">
+        <div>
+          <p class="etiqueta dorada">Colección seleccionada</p>
+          <h2>Encuentra tu próxima gorra</h2>
+        </div>
+        <p class="introduccion">
+          Modelos con personalidad, acabados premium y compra protegida por Mercado Libre.
+        </p>
       </div>
 
-      <div class="producto">
-        <h3>Nuevos modelos</h3>
-        <p>Encuentra los diseños más recientes disponibles.</p>
+      <div class="rejilla-productos">
+        <article class="producto">
+          <a class="producto-foto nieve" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+            <span class="ver-modelo">Ver modelo</span>
+          </a>
+          <div class="producto-info">
+            <p>BARBAS HATS</p>
+            <h3>Platinum Snow Flake</h3>
+            <a class="boton-comprar" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+              Comprar ahora <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="producto">
+          <a class="producto-foto cyan" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+            <span class="ver-modelo">Ver modelo</span>
+          </a>
+          <div class="producto-info">
+            <p>BARBAS HATS</p>
+            <h3>Heaven Cyan</h3>
+            <a class="boton-comprar" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+              Comprar ahora <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="producto">
+          <a class="producto-foto galaxy" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+            <span class="ver-modelo">Ver modelo</span>
+          </a>
+          <div class="producto-info">
+            <p>BARBAS HATS</p>
+            <h3>Galaxy CT</h3>
+            <a class="boton-comprar" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+              Comprar ahora <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="producto">
+          <a class="producto-foto letras" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+            <span class="ver-modelo">Ver modelo</span>
+          </a>
+          <div class="producto-info">
+            <p>BARBAS HATS</p>
+            <h3>CT Letras Chinas</h3>
+            <a class="boton-comprar" href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948" target="_blank" rel="noopener noreferrer">
+              Comprar ahora <span>↗</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="nosotros" id="nosotros">
+      <div class="nosotros-contenido">
+        <p class="etiqueta dorada">Acerca de nosotros</p>
+        <h2>Tu estilo, nuestra selección.</h2>
+        <p>
+          En Elite Caps México reunimos gorras con diseños llamativos y la calidad que buscas.
+          Estamos en Ojocaliente, Zacatecas, y enviamos a todo México mediante Mercado Libre.
+        </p>
+        <a
+          class="boton boton-dorado"
+          href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Conocer el catálogo completo</a>
       </div>
 
-      <div class="producto">
-        <h3>Envíos seguros</h3>
-        <p>Compra por Mercado Libre y recibe hasta tu domicilio.</p>
+      <div class="datos">
+        <div><strong>Compra protegida</strong><span>Pagos y envíos mediante Mercado Libre</span></div>
+        <div><strong>Atención directa</strong><span>Te ayudamos a elegir tu modelo ideal</span></div>
+        <div><strong>Ojocaliente, Zacatecas</strong><span>Tienda física Elite Caps México</span></div>
       </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-
-  <section class="contacto" id="contacto">
-
-    <h2 class="titulo-seccion">Contacto</h2>
-
-    <p>
-      ¿Quieres conocer nuestros modelos disponibles?
-      Comunícate con Elite Caps México.
-    </p>
-
-    <p>
-      Tienda física en Ojocaliente, Zacatecas.
-    </p>
-
-    <a class="boton-contacto" href="#">
-      Enviar mensaje
-    </a>
-
-  </section>
+    </section>
+  </main>
 
   <footer>
-    © 2026 Elite Caps México. Todos los derechos reservados.
+    <a class="marca marca-pie" href="#inicio">ELITE CAPS <span>MÉXICO</span></a>
+    <p>© 2026 Elite Caps México. Todos los derechos reservados.</p>
   </footer>
 
   <script>
     function abrirMenu() {
-      document
-        .getElementById("enlacesMenu")
-        .classList
-        .toggle("activo");
+      document.getElementById("linksMenu").classList.toggle("abierto");
     }
 
     function cerrarMenu() {
-      document
-        .getElementById("enlacesMenu")
-        .classList
-        .remove("activo");
+      document.getElementById("linksMenu").classList.remove("abierto");
     }
   </script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Elite Caps México</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #080808;
-      color: #ffffff;
-    }
-
-    /* MENSAJE SUPERIOR */
-
-    .aviso {
-      background-color: #ffffff;
-      color: #111111;
-      text-align: center;
-      padding: 15px;
-      font-size: 15px;
-      border-bottom: 1px solid #dddddd;
-    }
-
-    /* MENÚ SUPERIOR */
-
-    .menu {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
-      background-color: #ffffff;
-      color: #111111;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .menu-contenido {
-      max-width: 1500px;
-      min-height: 82px;
-      margin: auto;
-      padding: 0 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      color: #111111;
-      font-size: 22px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .enlaces {
-      display: flex;
-      align-items: center;
-      gap: 35px;
-      list-style: none;
-    }
-
-    .enlaces a {
-      color: #222222;
-      font-size: 17px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .enlaces a:hover {
-      color: #a57922;
-    }
-
-    .boton-menu {
-      display: none;
-      background: none;
-      border: none;
-      color: #111111;
-      font-size: 29px;
-      cursor: pointer;
-    }
-
-    /* PORTADA */
-
-    .portada {
-      position: relative;
-      width: 100%;
-      min-height: 650px;
-      height: calc(100vh - 130px);
-
-      background-image:
-        linear-gradient(
-          rgba(0, 0, 0, 0.12),
-          rgba(0, 0, 0, 0.48)
-        ),
-        url("ChatGPT Image 16 ago 2026, 11_36_21 p.m..png");
-
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-    }
-
-    .portada-contenido {
-      text-align: center;
-      transform: translateY(110px);
-    }
-
-    .portada h1 {
-      color: #ffffff;
-      font-size: clamp(38px, 5vw, 72px);
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.95);
-    }
-
-    .boton-principal {
-      display: inline-block;
-      color: #ffffff;
-      background-color: rgba(0, 0, 0, 0.6);
-      border: 2px solid #ffffff;
-      border-radius: 18px;
-      padding: 19px 35px;
-      font-size: 20px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .boton-principal:hover {
-      color: #000000;
-      background-color: #ffffff;
-      transform: scale(1.05);
-    }
-
-    /* CATÁLOGO */
-
-    .catalogo {
-      background-color: #0c0c0c;
-      padding: 85px 25px;
-      text-align: center;
-    }
-
-    .titulo-seccion {
-      color: #d4af37;
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .subtitulo {
-      color: #cccccc;
-      font-size: 18px;
-      margin-bottom: 45px;
-    }
-
-    .productos {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .producto {
-      min-height: 220px;
-      background: linear-gradient(145deg, #191919, #080808);
-      border: 1px solid #604c18;
-      border-radius: 15px;
-      padding: 35px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      transition: 0.3s;
-    }
-
-    .producto:hover {
-      border-color: #d4af37;
-      transform: translateY(-6px);
-    }
-
-    .producto h3 {
-      color: #d4af37;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    .producto p {
-      color: #dddddd;
-      line-height: 1.6;
-    }
-
-    /* CONTACTO */
-
-    .contacto {
-      background-color: #151515;
-      padding: 85px 25px;
-      text-align: center;
-    }
-
-    .contacto p {
-      max-width: 650px;
-      margin: 15px auto;
-      color: #dddddd;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .boton-contacto {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 16px 30px;
-      background-color: #d4af37;
-      color: #000000;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .boton-contacto:hover {
-      background-color: #ffffff;
-    }
-
-    footer {
-      background-color: #000000;
-      color: #999999;
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #463710;
-    }
-
-    /* VERSIÓN PARA TELÉFONOS */
-
-    @media (max-width: 750px) {
-      .menu-contenido {
-        min-height: 70px;
-        padding: 0 20px;
-        flex-wrap: wrap;
-      }
-
-      .boton-menu {
-        display: block;
-      }
-
-      .enlaces {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 10px 0 20px;
-      }
-
-      .enlaces.activo {
-        display: flex;
-      }
-
-      .enlaces li {
-        width: 100%;
-      }
-
-      .enlaces a {
-        display: block;
-        width: 100%;
-        padding: 14px 5px;
-        border-bottom: 1px solid #eeeeee;
-      }
-
-      .portada {
-        min-height: 620px;
-        height: calc(100vh - 115px);
-        background-position: center;
-      }
-
-      .portada-contenido {
-        transform: translateY(90px);
-      }
-
-      .portada h1 {
-        font-size: 34px;
-        line-height: 1.15;
-      }
-
-      .boton-principal {
-        padding: 16px 23px;
-        font-size: 16px;
-      }
-
-      .productos {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="aviso">
-    Bienvenido a nuestra tienda
-  </div>
-
-  <nav class="menu">
-    <div class="menu-contenido">
-
-      <a class="logo" href="#inicio">Elite Caps México</a>
-
-      <button
-        class="boton-menu"
-        type="button"
-        onclick="abrirMenu()"
-        aria-label="Abrir menú"
-      >
-        ☰
-      </button>
-
-      <ul class="enlaces" id="enlacesMenu">
-        <li>
-          <a href="#inicio" onclick="cerrarMenu()">Inicio</a>
-        </li>
-
-        <li>
-          <a href="#catalogo" onclick="cerrarMenu()">Catálogo</a>
-        </li>
-
-        <li>
-          <a href="#contacto" onclick="cerrarMenu()">Contacto</a>
-        </li>
-      </ul>
-
-    </div>
-  </nav>
-
-  <!-- INICIO -->
-
-  <section class="portada" id="inicio">
-    <div class="portada-contenido">
-
-      <h1>Gorras Elite Caps México</h1>
-
-      <a
-        class="boton-principal"
-        href="https://listado.mercadolibre.com.mx/_CustId_171663948?item_id=MLM4955389962&amp;category_id=MLM437606&amp;seller_id=171663948&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=classic"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Comprar Seguro en Mercado Libre
-      </a>
-
-    </div>
-  </section>
-
-  <!-- CATÁLOGO -->
-
-  <section class="catalogo" id="catalogo">
-
-    <h2 class="titulo-seccion">Nuestro catálogo</h2>
-
-    <p class="subtitulo">
-      Conoce algunos de los estilos disponibles en Elite Caps México.
-    </p>
-
-    <div class="productos">
-
-      <div class="producto">
-        <h3>Gorras premium</h3>
-        <p>Diseños exclusivos con excelente calidad y acabados.</p>
-      </div>
-
-      <div class="producto">
-        <h3>Nuevos modelos</h3>
-        <p>Encuentra los diseños más recientes disponibles.</p>
-      </div>
-
-      <div class="producto">
-        <h3>Envíos seguros</h3>
-        <p>Compra por Mercado Libre y recibe hasta tu domicilio.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-
-  <section class="contacto" id="contacto">
-
-    <h2 class="titulo-seccion">Contacto</h2>
-
-    <p>
-      ¿Quieres conocer nuestros modelos disponibles?
-      Comunícate con Elite Caps México.
-    </p>
-
-    <p>
-      Tienda física en Ojocaliente, Zacatecas.
-    </p>
-
-    <a class="boton-contacto" href="#">
-      Enviar mensaje
-    </a>
-
-  </section>
-
-  <footer>
-    © 2026 Elite Caps México. Todos los derechos reservados.
-  </footer>
-
-  <script>
-    function abrirMenu() {
-      document
-        .getElementById("enlacesMenu")
-        .classList
-        .toggle("activo");
-    }
-
-    function cerrarMenu() {
-      document
-        .getElementById("enlacesMenu")
-        .classList
-        .remove("activo");
-    }
-  </script>
-
 </body>
 </html>
