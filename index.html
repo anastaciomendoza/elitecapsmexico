@@ -441,7 +441,7 @@
           <h2>Encuentra tu próxima gorra</h2>
         </div>
         <p class="introduccion">
-          Un catálogo amplio para hasta 100 gorras, con fotografías grandes y compra protegida por Mercado Libre.
+          Tenemos un catálogo super amplio de hasta mas de 100 gorras, tu compra protegida por Mercado Libre.
         </p>
       </div>
 
@@ -673,7 +673,7 @@
       const fragmento = document.createDocumentFragment();
       visibles.forEach((producto) => fragmento.append(crearTarjeta(producto)));
       rejilla.append(fragmento);
-      contador.textContent = `${productos.length} modelos disponibles · mostrando ${visibles.length}`;
+      contador.textContent = `${productos.length} mas modelos disponibles · mostrando ${visibles.length}`;
       botonMostrarMas.classList.toggle("oculto", cantidadVisible >= productos.length);
     }
 
