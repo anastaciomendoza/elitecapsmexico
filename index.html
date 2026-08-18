@@ -437,11 +437,11 @@
     <section class="catalogo" id="catalogo">
       <div class="cabecera-seccion">
         <div>
-          <p class="etiqueta dorada">Colección seleccionada</p>
+          <p class="etiqueta dorada">Colección seleccionada: </p>
           <h2>Encuentra tu próxima gorra</h2>
         </div>
         <p class="introduccion">
-          Gorras Premium, calidad que se nota, al mejor precio y con la confianza de comprar.
+          Gorras Premium, calidad que se nota, al mejor precio y con la confianza de comprar en todo Mexico.
         </p>
       </div>
 
@@ -498,7 +498,7 @@
       { numero: 2, marca: "BARBAS HATS", nombre: "Heaven Cyan", imagen: "./barbas-hats-barbas-heaven-snapback-negra-turquesa-multivista.png", enlace: "https://www.mercadolibre.com.mx/gorra-barbas-hats-heaven-modelo-2026-con-caja/up/MLMU4296516897" },
       { numero: 3, marca: "BARBAS HATS", nombre: "Galaxy CT", imagen: "./gorra-barbas-hats-ct-galaxy-negra-frontal-estrellas.png", enlace: "https://www.mercadolibre.com.mx/gorra-barbas-hats-galaxy-dorada-con-caja-ct/up/MLMU4154306537" },
       { numero: 4, marca: "BARBAS HATS", nombre: "CT Letras Chinas", imagen: "./gorra-barbas-hats-ct-oriental-tumbado-frontal-katakana.png", enlace: "https://www.mercadolibre.com.mx/gorra-barbas-ct-murakami-letras-chinas-con-caja/up/MLMU3831841536" },
-      { numero: 5, marca: "BARBAS HATS", nombre: "Rock Star", imagen: "./rockstarconcaja.png", enlace: "https://www.mercadolibre.com.mx/gorra-barbas-3-estrellas-con-caja/up/MLMU3831902664?pdp_filters=seller_id%3A171663948#polycard_client=search-desktop&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=22&type=product&tracking_id=bbbbfbf5-6e72-47c6-808a-49d6a7c6612a&wid=MLM4955457282&sid=search" },
+      { numero: 5, marca: "BARBAS HATS", nombre: "Rock Star", imagen: "./rockstarconcaja2.png", enlace: "https://www.mercadolibre.com.mx/gorra-barbas-3-estrellas-con-caja/up/MLMU3831902664?pdp_filters=seller_id%3A171663948#polycard_client=search-desktop&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=22&type=product&tracking_id=bbbbfbf5-6e72-47c6-808a-49d6a7c6612a&wid=MLM4955457282&sid=search" },
       { numero: 6, marca: "ELITE CAPS", nombre: "Gorra 006", imagen: "./gorra-006.jpg", enlace: TIENDA_MERCADO_LIBRE },
       { numero: 7, marca: "ELITE CAPS", nombre: "Gorra 007", imagen: "./gorra-007.jpg", enlace: TIENDA_MERCADO_LIBRE },
       { numero: 8, marca: "ELITE CAPS", nombre: "Gorra 008", imagen: "./gorra-008.jpg", enlace: TIENDA_MERCADO_LIBRE },
@@ -673,7 +673,7 @@
       const fragmento = document.createDocumentFragment();
       visibles.forEach((producto) => fragmento.append(crearTarjeta(producto)));
       rejilla.append(fragmento);
-      contador.textContent = `${productos.length} mas modelos disponibles · mostrando ${visibles.length}`;
+      contador.textContent = `${productos.length} GORRAS PREMIUM · MOSTRANDO ${visibles.length}`;
       botonMostrarMas.classList.toggle("oculto", cantidadVisible >= productos.length);
     }
 
